@@ -3,6 +3,7 @@ import { Check, MinusIcon, PlusIcon, RefreshCw } from "lucide-react"
 import { useEffect, useState } from "react"
 import { toast, ToastContainer, Zoom } from "react-toastify";
 
+
 function App() {
   const [length, setLength] = useState<number>(16);
   const [useCapital, setUseCapital] = useState<boolean>(true)
