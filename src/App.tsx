@@ -11,18 +11,14 @@ function App() {
   const [useSymbols, setUseSymbols] = useState<boolean>(false)
   const [password, setPassword] = useState<string>('');
   const [strength, setStrength] = useState<number>();
-
-  // const checkedBoxes = useRef(3);
-
   const passwordStrength: { [key: number]: string } = { 1: 'Very Strong', 2: 'Medium', 3: 'Weak' }
   const chipVarient: { [key: number]: 'success' | 'warning' | 'danger' } = { 1: 'success', 2: 'warning', 3: 'danger' }
-  // Characters pools
+  
   const capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const smallLetters = 'abcdefghijklmnopqrstuvwxyz';
   const numbers = '0123456789';
   const symbols = '!@#$%^&*()_+[]{}|;:,.<>?';
-
-  // Function to generate password based on the selected options
+  
   const generatePassword = () => {
     let characters = '';
     if (useCapital) characters += capitalLetters;
@@ -44,9 +40,6 @@ function App() {
   };
 
   const evaluateStrength = (password: string) => {
-    // const numberCriteria = /[0-9]/.test(password);
-    // const symbolCriteria = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-    // const capitalLetterCriteria = /[A-Z]/.test(password);
 
     if (password.length > 14 && getCheckedCount() > 2) {
       setStrength(1);
@@ -57,10 +50,8 @@ function App() {
     }
   };
 
-  // Effect to regenerate password whenever the settings change
   useEffect(() => {
     generatePassword();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [length, useCapital, useSmall, useNumbers, useSymbols]);
 
   const handleIncrement = () => {
@@ -138,7 +129,6 @@ function App() {
         </div>
       </div>
       <ToastContainer/>
-      {/* <Toaster/> */}
     </>
   )
 }
